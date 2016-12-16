@@ -13,7 +13,13 @@ var processingBuffer  = 2000;
 
 var redirect = function(url) {
    log('ts: ' + timestamp + '; redirecting to: ' + url);
-  window.location = url;
+try{
+ window.location = url;
+}
+catch(e){
+    alert('An error has occurred: '+e.message)
+}  
+ 
 }
 var isPageHidden = function() {
     var browserSpecificProps = {hidden:1, mozHidden:1, msHidden:1, webkitHidden:1};
